@@ -37,6 +37,14 @@
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
     {% if post.venue%}<p class="archive__item-excerpt" itemprop="description">{{ post.citation }}</p> {% endif %}
+    {% if post.collection == 'education' %} 
+      {% if post.no_subtitle != true %}
+        <p class="archive__item-excerpt"> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.display_date | default: post.date | default: "1900-01-01" }} </p>
+        {% for award in post.awards %}
+          <p class="archive__item-excerpt"> {{ award }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endif %}
     </li>
  </article>
 </div>
