@@ -20,3 +20,4 @@ Education
 Interests
 ===
 - Machine Learning
+- Power System Optimization

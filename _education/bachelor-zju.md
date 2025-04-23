@@ -11,6 +11,7 @@ location: "Hangzhou, China"
 
 awards:
   - Third-Class Scholarship, Zhejiang University (2022-2023)
+  - Third-Class Scholarship, Zhejiang University (2023-2024)
 ---
 
 ## Awards and Leadership
