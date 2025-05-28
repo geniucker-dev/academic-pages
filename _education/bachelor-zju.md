@@ -6,7 +6,6 @@ type: "Electrical Engineering"
 venue: "Zhejiang University"
 excerpt: ""
 display_date: "2022-09 ~ Present"
-date: 2026-06
 location: "Hangzhou, China"
 
 awards:

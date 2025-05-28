@@ -6,6 +6,5 @@ type: "Electrical Engineering"
 venue: "University of Illinois at Urbana-Champaign"
 excerpt: ""
 display_date: "2022-09 ~ Present"
-date: 2026-06
 location: "Urbana, IL, USA"
 ---
