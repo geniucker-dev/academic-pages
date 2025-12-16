@@ -29,16 +29,18 @@ author:
   bio              : "EE @ ZJU-UIUC"
   location         : "Zhejiang"
   employer         : "Zhejiang University"
+  employer         : "University of Illinois Urbana-Champaign"
   uri              : # URL
+  email            : "haoyu.22@intl.zju.edu.cn" 
   email            : "me@geniucker.com" 
 
   # Academic websites
   academia         : # URL
-  arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : # "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  arxiv            : "https://arxiv.org/a/0009-0003-1458-2865"
+  googlescholar    : "https://scholar.google.com/citations?hl=en&authuser=1&user=CWeLKnMAAAAJ"
   inspire-hep      : # URL
   impactstory      : # URL
-  orcid            : # "https://orcid.org/yourorcidurl"
+  orcid            : "https://orcid.org/0009-0003-1458-2865"
   semantic         : # URL
   ssrn             : # URL
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
@@ -66,7 +68,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : 皓宇-朱-89975b343 # Username
+  linkedin         : haoyuzhu03 # Username
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
