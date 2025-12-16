@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I'm pursuing his dual Bachelor's degree in Electrical Engineering from Zhejiang University and University of Illinois at Urbana-Champaign.
+I'm pursuing my dual Bachelor's degree in Electrical Engineering from Zhejiang University and University of Illinois at Urbana-Champaign.
 
 Education
 ===
