@@ -28,11 +28,14 @@ author:
   pronouns         : # example: "she/her"  
   bio              : "EE @ ZJU-UIUC"
   location         : "Zhejiang"
-  employer         : "Zhejiang University"
-  employer         : "University of Illinois Urbana-Champaign"
+  employers        :
+    - "Zhejiang University"
+    - "University of Illinois Urbana-Champaign"
   uri              : # URL
-  email            : "haoyu.22@intl.zju.edu.cn" 
-  email            : "me@geniucker.com" 
+  emails           :
+    - "me@geniucker.com"
+    - "haoyu.22@intl.zju.edu.cn"
+  preferred_email  : "me@geniucker.com"
 
   # Academic websites
   academia         : # URL

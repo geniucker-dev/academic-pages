@@ -27,14 +27,28 @@
       {% if author.location %}
         <li class="author__desktop"><i class="fas fa-fw fa-location-dot icon-pad-right" aria-hidden="true"></i>{{ author.location }}</li>
       {% endif %}
-      {% if author.employer %}
+      {% if author.employers %}
+        {% for employer in author.employers %}
+          <li class="author__desktop"><i class="fas fa-fw fa-building-columns icon-pad-right" aria-hidden="true"></i>{{ employer }}</li>
+        {% endfor %}
+      {% elsif author.employer %}
         <li class="author__desktop"><i class="fas fa-fw fa-building-columns icon-pad-right" aria-hidden="true"></i>{{ author.employer }}</li>
       {% endif %}
       {% if author.uri %}
         <li><a href="{{ author.uri }}"><i class="fas fa-fw fa-link icon-pad-right" aria-hidden="true"></i>{{ site.data.ui-text[site.locale].website_label | default: "Website" }}</a></li>
       {% endif %}
-      {% if author.email %}
-        <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i>{{ site.data.ui-text[site.locale].email_label | default: "Email" }}</a></li>
+      {% if author.emails %}
+        {% assign email_count = author.emails | size %}
+        {% for email in author.emails %}
+          {% assign label = site.data.ui-text[site.locale].email_label | default: "Email" %}
+          {% if email_count > 1 and author.preferred_email and email == author.preferred_email %}
+            {% assign label = label | append: " (preferred)" %}
+          {% endif %}
+          <li><a href="mailto:{{ email }}"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i>{{ label }}</a></li>
+        {% endfor %}
+      {% elsif author.email %}
+        {% assign label = site.data.ui-text[site.locale].email_label | default: "Email" %}
+        <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i>{{ label }}</a></li>
       {% endif %}
 
       <!-- Font Awesome and Academicons icons / Academic websites -->
