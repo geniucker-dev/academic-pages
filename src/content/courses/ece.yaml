@@ -1,0 +1,27 @@
+category: ECE
+order: 1
+items:
+  - name: "ECE 110: Intro to Electronics"
+    completed: true
+    grade: "A+"
+  - name: "ECE 120: Intro to Computing"
+    completed: true
+    grade: "A+"
+  - name: "ECE 210: Analog Signal Processing"
+    completed: true
+    grade: "A"
+  - name: "ECE 220: Computer Systems & Programming"
+    completed: true
+    grade: "A+"
+  - name: "ECE 310: Digital Signal Processing"
+    completed: true
+    grade: "A+"
+  - name: "ECE 329: Fields and Waves I"
+    completed: true
+    grade: "A+"
+  - name: "ECE 330: Power Circuits and Electromechanics"
+    completed: true
+    grade: "A+"
+  - name: "ECE 342: Electronic Circuits"
+    completed: true
+    grade: "A+"

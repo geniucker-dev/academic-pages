@@ -1,0 +1,9 @@
+category: CS
+order: 3
+items:
+  - name: "CS 101:  Intro to Computing"
+    completed: true
+    grade: "A+"
+  - name: "CS 225: Data Structures"
+    completed: true
+    grade: "A+"

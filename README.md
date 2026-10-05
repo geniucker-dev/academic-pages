@@ -1,96 +1,63 @@
-# Academic Pages
-**Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
+# Haoyu Zhu's academic homepage
 
-![Academic Pages template example](images/themes/homepage-light.png "Academic Pages template example")
+Astro static site for <https://academic.geniucker.com>. Use Bun 1.4.2 for installation and all scripts.
 
-# Getting Started
-
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your public repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
-
-See more info at https://academicpages.github.io/
-
-## Running locally
-
-When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
-
-1. Clone the repository and made updates as detailed above.
-
-### Using a different IDE
-1. Make sure you have ruby-dev, bundler, and nodejs installed
-    
-    On most Linux distribution and [Windows Subsystem Linux](https://learn.microsoft.com/en-us/windows/wsl/about) the command is:
-    ```bash
-    sudo apt install ruby-dev ruby-bundler nodejs
-    ```
-    If you see error `Unable to locate package ruby-bundler`, `Unable to locate package nodejs `, run the following:
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
-    then try run `sudo apt install ruby-dev ruby-bundler nodejs` again.
-
-    On MacOS the commands are:
-    ```bash
-    brew install ruby
-    brew install node
-    gem install bundler
-    ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-
-    If you see file permission error like `Fetching bundler-2.6.3.gem ERROR:  While executing gem (Gem::FilePermissionError) You don't have write permissions for the /var/lib/gems/3.2.0 directory.` or `Bundler::PermissionError: There was an error while trying to write to /usr/local/bin.`
-    Install Gems Locally (Recommended):
-    ```bash
-    bundle config set --local path 'vendor/bundle'
-    ```
-    then try run `bundle install` again. If succeeded, you should see a folder called `vendor` and `.bundle`.
-
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change to Markdown (*.md) and HTML files, while changes to the core template and configuration (i.e., `_config.yml`) will require stoping and restarting Jekyll.
-    You may also try `bundle exec jekyll serve -l -H localhost` to ensure jekyll to use specific dependencies on your own local machine.
-
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
-
-## Using Docker
-
-Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
-
-You can build and execute the container by running the following command in the repository:
-
-```bash
-chmod -R 777 .
-docker compose up
+```sh
+bun install --frozen-lockfile
+bun run dev
+bun run build
+bun run preview
 ```
 
-You should now be able to access the website from `localhost:4000`.
+`build` runs Astro's type checks, validates content collection schemas, and generates `dist/`. No browser JavaScript is required for the homepage.
 
-### Using the DevContainer in VS Code
+## Editing content
 
-If you are using [Visual Studio Code](https://code.visualstudio.com/) you can use the [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) that comes with this Repository. Normally VS Code detects that a development container configuration is available and asks you if you want to use the container. If this doesn't happen you can manually start the container by **F1->DevContainer: Reopen in Container**. This restarts your VS Code in the container and automatically hosts your academic page locally on http://localhost:4000. All changes will be updated live to that page after a few seconds.
+Content lives in `src/content/`; presentation lives in `src/components/`, `src/layouts/`, and `src/styles/home.css`. The homepage and HTML CV share the same collections.
 
-# Maintenance
+| Content | File or directory |
+| --- | --- |
+| Name, biography, portrait, contact links, skills, update date | `src/content/profile/haoyu.md` |
+| Publications | `src/content/publications/*.yaml` |
+| News | `src/content/news/*.md` |
+| Education | `src/content/education/*.yaml` |
+| Research experience | `src/content/experience/*.yaml` |
+| Teaching | `src/content/teaching/*.yaml` |
+| Honors | `src/content/honors/*.yaml` |
+| Courses retained from the old site, shown on the CV | `src/content/courses/*.yaml` |
 
-Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
+To add a paper, create **one YAML file** in `src/content/publications/`, following `t-skm-net.yaml`. Publications sort by `date`, newest first; the author matching the profile's `name` is highlighted automatically. Thumbnail assets go in `public/images/publications/`.
 
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
+To add news, create **one Markdown file** in `src/content/news/`:
 
-## Bugfixes and enhancements
-
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
-
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
-
+```md
 ---
-<div align="center">
-    
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/academicpages/academicpages.github.io.svg)](https://github.com/academicpages/academicpages.github.io/graphs/contributors)
-[![GitHub release](https://img.shields.io/github/v/release/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/academicpages/academicpages.github.io?color=blue)](https://github.com/academicpages/academicpages.github.io/blob/master/LICENSE)
+date: '2026-10-06'
+---
+Your announcement with optional [links](https://example.com).
+```
 
-[![GitHub stars](https://img.shields.io/github/stars/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io)
-[![GitHub forks](https://img.shields.io/github/forks/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/fork)
-</div>
+News sorts newest first and displays month/year. Dates use quoted `YYYY-MM-DD`; an event known only to the month uses the first day for sorting. Timeline collections use `order` (lower first), `title`, optional `subtitle`, and optional `dateLabel`. Schemas are in `src/content.config.ts` and are checked during every build.
+
+## Deployment
+
+`.github/workflows/deploy.yml` installs from `bun.lock`, builds, uploads `dist/`, and deploys using the official GitHub Pages actions. It runs on pushes to `main` or manual dispatch. `public/CNAME` and Astro's `site` preserve `academic.geniucker.com` with no repository subpath.
+
+**One repository setting is still required:** in **Settings → Pages → Build and deployment → Source**, select **GitHub Actions**. The repository currently uses legacy branch deployment; the available integration returned HTTP 403 when attempting to switch this setting. Keep the existing custom domain. After this setting is changed, pushing the local `main` commit will run the deployment workflow.
+
+The new `main` is committed locally only. The old main is preserved and pushed as `backup/academicpages-2026-10-06` at `fa5031b816226dd477eba365195ac84e79b368ad`.
+
+## Content sources and remaining details
+
+- Personal content: the backup branch and the live old site, including the real `images/avatar.jpg`, dual degree, CAD summer research, teaching, scholarships, skills, and courses. Old example/template entries were excluded.
+- T-SKM-Net: the shared publication record and thumbnail from [Jiashen Ren's site](https://gaas9000.github.io/), with **Haoyu Zhu** highlighted as first author. The publisher lists March 14, 2026 as publication date; arXiv lists December 11, 2025 for the preprint.
+- Education keeps the original **Sep 2022 – Present**. A graduation date or current position was not inferred from the coauthor's biography.
+- The CAD summer research entry lacks dates, institution, and advisor in the old source; these remain absent.
+- There is no standalone CV PDF in the old source. The CV link opens `/cv/`, built from the same real content, with print styles. A downloadable PDF can be added later.
+- Course completion and grades are retained as recorded in the backup. The original incomplete ECE 313 record appears only on the CV.
+
+## Design and licenses
+
+The layout, self-hosted Inter font, CSS values, and decorative SVG icons follow [GaAs9000/GaAs9000.github.io](https://github.com/GaAs9000/GaAs9000.github.io) at `f6fb8342354692e0c1ef7f474a21793ee5c0ff41`. Its MIT license is retained in `LICENSE`; Inter's SIL Open Font License is in `public/fonts/inter-LICENSE.txt`. Only the shared T-SKM-Net record/image is reused as academic content. The coauthor's portrait, biography, other publications, education, and experience are not part of this site.
+
+Verification includes `bun run build`, browser checks at 1440px and 390px, and full-page screenshots compared alongside the live reference. No unit tests were added.
