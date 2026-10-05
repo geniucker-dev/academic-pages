@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+interface Props { collection: 'education' | 'experience' | 'teaching' | 'honors' }
+const { collection } = Astro.props;
+const rows = (await getCollection(collection)).sort((a, b) => a.data.order - b.data.order);
+---
+<ul class="rows">
+  {rows.map(({ data }) => (
+    <li class="row">
+      <p class="row__main">{data.title}</p>
+      {data.dateLabel && <span class="row__date">{data.dateLabel}</span>}
+      {data.subtitle && <p class="row__sub">{data.subtitle}</p>}
+    </li>
+  ))}
+</ul>

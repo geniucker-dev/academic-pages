@@ -1,0 +1,26 @@
+title: 'T-SKM-Net: Trainable Neural Network Framework for Linear Constraint Satisfaction via Sampling Kaczmarz-Motzkin Method'
+date: '2026-03-14'
+url: https://ojs.aaai.org/index.php/AAAI/article/view/38459
+authors:
+  - Haoyu Zhu
+  - Yao Zhang
+  - Jiashen Ren
+  - Qingchun Hou
+tag: AAAI 2026
+venue: 'Proceedings of the AAAI Conference on Artificial Intelligence, 40(17):14431–14439'
+image: /images/publications/tskm-net.png
+imageAlt: T-SKM-Net framework for satisfying linear equality and inequality constraints
+summary: A trainable Sampling Kaczmarz-Motzkin layer that enforces linear constraints on neural network outputs, with over 25× speedup over a standard solver on DC optimal power flow.
+links:
+  - label: Paper
+    icon: link
+    href: https://ojs.aaai.org/index.php/AAAI/article/view/38459
+  - label: PDF
+    icon: file
+    href: https://ojs.aaai.org/index.php/AAAI/article/view/38459/42421
+  - label: Poster
+    icon: image
+    href: https://ojs.aaai.org/index.php/AAAI/article/view/38459/49369
+  - label: DOI
+    icon: link
+    href: https://doi.org/10.1609/aaai.v40i17.38459

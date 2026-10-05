@@ -1,0 +1,23 @@
+category: MATH
+order: 5
+items:
+  - name: "MATH 213: Basic Discrete Mathematics"
+    completed: true
+    grade: "A"
+  - name: "MATH 221: Calculus I"
+    completed: true
+    grade: "A+"
+  - name: "MATH 231: Calculus II"
+    completed: true
+    grade: "A+"
+  - name: "MATH 241: Calculus III"
+    completed: true
+    grade: "A+"
+  - name: "MATH 257: Linear Algebra with Computational Applications"
+    completed: true
+    grade: "A+"
+  - name: "MATH 285: Intro Differential Equations"
+    completed: true
+    grade: "A+"
+  - name: "ECE 313: Probability with Engineering Applications"
+    completed: false
