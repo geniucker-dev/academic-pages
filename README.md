@@ -43,7 +43,7 @@ News sorts newest first and displays month/year. Dates use quoted `YYYY-MM-DD`; 
 
 `.github/workflows/deploy.yml` installs from `bun.lock`, builds, uploads `dist/`, and deploys using the official GitHub Pages actions. It runs on pushes to `main` or manual dispatch. `public/CNAME` and Astro's `site` preserve `academic.geniucker.com` with no repository subpath.
 
-**One repository setting is still required:** in **Settings → Pages → Build and deployment → Source**, select **GitHub Actions**. The repository currently uses legacy branch deployment; the available integration returned HTTP 403 when attempting to switch this setting. Keep the existing custom domain. After this setting is changed, pushing the local `main` commit will run the deployment workflow.
+The repository's Pages source is configured as **GitHub Actions** (`build_type: workflow`), and the custom domain remains `academic.geniucker.com`. Pushing the local `main` commits will run the deployment workflow.
 
 The new `main` is committed locally only. The old main is preserved and pushed as `backup/academicpages-2026-10-06` at `fa5031b816226dd477eba365195ac84e79b368ad`.
 
