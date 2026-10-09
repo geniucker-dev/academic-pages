@@ -1,0 +1,20 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Link from './Link.astro';
+const profile = await getEntry('profile', 'haoyu');
+const publications = (await getCollection('publications')).sort((a, b) => b.data.date.localeCompare(a.data.date));
+---
+{publications.map(({ data: pub }) => (
+  <article class="pub">
+    <a class="pub__thumb" href={pub.url} target="_blank" rel="noopener noreferrer" aria-label={`Read ${pub.title}`}>
+      <img src={pub.image} alt={pub.imageAlt} loading="lazy" width="800" height="500" />
+    </a>
+    <div class="pub__body">
+      <h3 class="pub__title"><a href={pub.url} target="_blank" rel="noopener noreferrer">{pub.title}</a></h3>
+      <p class="pub__authors">{pub.authors.map((author, index) => <>{index > 0 && ', '}{author === profile?.data.name ? <strong>{author}</strong> : author}</>)}</p>
+      <p class="pub__venue"><span class="pub__tag">{pub.tag}</span>{pub.venue}</p>
+      <p class="pub__summary">{pub.summary}</p>
+      <div class="pub__links">{pub.links.map((link) => <Link {...link} />)}</div>
+    </div>
+  </article>
+))}

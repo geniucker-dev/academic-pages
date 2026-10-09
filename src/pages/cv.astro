@@ -1,0 +1,27 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Link from '../components/Link.astro';
+import Section from '../components/Section.astro';
+import Rows from '../components/Rows.astro';
+import Publications from '../components/Publications.astro';
+const profile = (await getEntry('profile', 'haoyu'))!.data;
+const courses = (await getCollection('courses')).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="CV">
+  <header class="cv-header">
+    <h1 class="hero__name">{profile.name} <span lang="zh-Hans">({profile.nativeName})</span></h1>
+    <p class="hero__role">Curriculum Vitae · {profile.role}</p>
+    <div class="links">{profile.links.filter((link) => link.label !== 'CV').map((link) => <Link {...link} />)}</div>
+    <div class="links">{profile.additionalLinks.map((link) => <Link {...link} />)}</div>
+  </header>
+  <Section id="education" title="Education" icon="scholar"><Rows collection="education" /></Section>
+  <Section id="experience" title="Research Experience" icon="flask"><Rows collection="experience" /></Section>
+  <Section id="publications" title="Publications" icon="book"><Publications /></Section>
+  <Section id="teaching" title="Teaching" icon="presentation"><Rows collection="teaching" /></Section>
+  <Section id="honors" title="Honors" icon="award"><Rows collection="honors" /></Section>
+  <Section id="skills" title="Skills" icon="file"><p>{profile.skills.join(' · ')}</p></Section>
+  <Section id="courses" title="Courses Taken" icon="book">
+    {courses.map(({ data }) => <div class="course-group"><h3>{data.category}</h3><ul>{data.items.map((course) => <li>{course.name}{course.grade ? ` (${course.grade})` : ''}{!course.completed && ' — in progress in the original record'}</li>)}</ul></div>)}
+  </Section>
+</Base>

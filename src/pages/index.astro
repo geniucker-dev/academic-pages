@@ -1,0 +1,48 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Link from '../components/Link.astro';
+import Section from '../components/Section.astro';
+import Rows from '../components/Rows.astro';
+import Publications from '../components/Publications.astro';
+const entry = await getEntry('profile', 'haoyu');
+if (!entry) throw new Error('Missing profile');
+const { data: profile } = entry;
+const { Content: Bio } = await render(entry);
+const news = await Promise.all((await getCollection('news'))
+  .sort((a, b) => b.data.date.localeCompare(a.data.date))
+  .map(async (entry) => ({ date: entry.data.date, ...await render(entry) })));
+const dateLabel = (date: string) => new Date(`${date}T00:00:00Z`).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+---
+<Base>
+  <header class="hero">
+    <div class="hero__text">
+      <h1 class="hero__name">{profile.name} <span lang="zh-Hans">({profile.nativeName})</span></h1>
+      <p class="hero__role">{profile.role}</p>
+      <div class="hero__meta">
+        <span><Icon name="landmark" />{profile.affiliation}</span>
+        <span><Icon name="pin" />{profile.location}</span>
+      </div>
+      <div class="bio"><Bio /></div>
+      <div class="links">{profile.links.map((link) => <Link {...link} />)}</div>
+    </div>
+    <img class="hero__photo" src={profile.avatar} alt={`${profile.name} (${profile.nativeName})`} width={profile.avatarWidth} height={profile.avatarHeight} fetchpriority="high" />
+  </header>
+
+  <Section id="news" title="News" icon="news">
+    <ul class="rows">
+      {news.map(({ date, Content }) => (
+        <li class="row row--news">
+          <time class="row__date" datetime={date}>{dateLabel(date)}</time>
+          <div class="row__main"><Content /></div>
+        </li>
+      ))}
+    </ul>
+  </Section>
+  <Section id="publications" title="Publications" icon="book"><Publications /></Section>
+  <Section id="education" title="Education" icon="scholar"><Rows collection="education" /></Section>
+  <Section id="experience" title="Research Experience" icon="flask"><Rows collection="experience" /></Section>
+  <Section id="honors" title="Honors" icon="award"><Rows collection="honors" /></Section>
+  <Section id="teaching" title="Teaching" icon="presentation"><Rows collection="teaching" /></Section>
+</Base>
