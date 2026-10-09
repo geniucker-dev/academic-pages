@@ -45,7 +45,7 @@ News sorts newest first and displays month/year. Dates use quoted `YYYY-MM-DD`; 
 
 The repository's Pages source is configured as **GitHub Actions** (`build_type: workflow`), and the custom domain remains `academic.geniucker.com`. Pushing the local `main` commits will run the deployment workflow.
 
-The new `main` is committed locally only. The old main is preserved and pushed as `backup/academicpages-2026-10-06` at `fa5031b816226dd477eba365195ac84e79b368ad`.
+`main` begins with the Astro rebuild as its root commit. Later changes, including the deployment documentation update and the original study-photo update, remain separate commits with their original messages and timestamps. Their author and committer are `geniucker-dev <me@geniucker.com>`. The complete history before rewriting is preserved on the remote branch `backup/main-before-history-reset-2026-10-09` at `1b97211cf95ea0c58f238b7d035ef9abaa7ba3f8`. The original Jekyll site remains on `backup/academicpages-2026-10-06` at `fa5031b816226dd477eba365195ac84e79b368ad`.
 
 ## Content sources and remaining details
 
