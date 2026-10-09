@@ -33,6 +33,8 @@ export const collections = {
       location: text,
       description: text,
       avatar: asset,
+      avatarWidth: z.number().int().positive(),
+      avatarHeight: z.number().int().positive(),
       updated: date,
       links: z.array(link).min(1),
       additionalLinks: z.array(link).default([]),

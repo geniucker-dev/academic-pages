@@ -27,7 +27,7 @@ const dateLabel = (date: string) => new Date(`${date}T00:00:00Z`).toLocaleDateSt
       <div class="bio"><Bio /></div>
       <div class="links">{profile.links.map((link) => <Link {...link} />)}</div>
     </div>
-    <img class="hero__photo" src={profile.avatar} alt={`${profile.name} (${profile.nativeName})`} width="819" height="819" fetchpriority="high" />
+    <img class="hero__photo" src={profile.avatar} alt={`${profile.name} (${profile.nativeName})`} width={profile.avatarWidth} height={profile.avatarHeight} fetchpriority="high" />
   </header>
 
   <Section id="news" title="News" icon="news">

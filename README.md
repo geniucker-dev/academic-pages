@@ -13,7 +13,7 @@ bun run preview
 
 ## Editing content
 
-Content lives in `src/content/`; presentation lives in `src/components/`, `src/layouts/`, and `src/styles/home.css`. The homepage and HTML CV share the same collections.
+Content lives in `src/content/`; presentation lives in `src/components/`, `src/layouts/`, and `src/styles/home.css`. The homepage and HTML CV share the same collections. To replace the portrait, put the original image in `public/images/` and update `avatar`, `avatarWidth`, and `avatarHeight` in the profile. The homepage displays the entire photo at its original aspect ratio.
 
 | Content | File or directory |
 | --- | --- |
@@ -49,7 +49,7 @@ The new `main` is committed locally only. The old main is preserved and pushed a
 
 ## Content sources and remaining details
 
-- Personal content: the backup branch and the live old site, including the real `images/avatar.jpg`, dual degree, CAD summer research, teaching, scholarships, skills, and courses. Old example/template entries were excluded.
+- Personal content: the backup branch and the live old site, including the dual degree, CAD summer research, teaching, scholarships, skills, and courses. The homepage portrait is the user's original laptop-working photo uploaded on October 9, 2026, preserved without retouching as `public/images/profile-study.jpg`; the former portrait remains at `public/images/avatar.jpg`. Old example/template entries were excluded.
 - T-SKM-Net: the shared publication record and thumbnail from [Jiashen Ren's site](https://gaas9000.github.io/), with **Haoyu Zhu** highlighted as first author. The publisher lists March 14, 2026 as publication date; arXiv lists December 11, 2025 for the preprint.
 - Education keeps the original **Sep 2022 – Present**. A graduation date or current position was not inferred from the coauthor's biography.
 - The CAD summer research entry lacks dates, institution, and advisor in the old source; these remain absent.

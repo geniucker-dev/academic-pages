@@ -199,16 +199,8 @@ p {
   flex: none;
   width: clamp(112px, 22vw, 176px);
   height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  -webkit-mask-image:
-    linear-gradient(to right, transparent, #000 7%, #000 93%, transparent),
-    linear-gradient(to bottom, transparent, #000 6%, #000 90%, transparent);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(to right, transparent, #000 7%, #000 93%, transparent),
-    linear-gradient(to bottom, transparent, #000 6%, #000 90%, transparent);
-  mask-composite: intersect;
+  object-fit: contain;
+  border-radius: 6px;
 }
 
 .bio p {
