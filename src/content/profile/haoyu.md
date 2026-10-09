@@ -5,8 +5,10 @@ role: Electrical Engineering · ZJU–UIUC
 affiliation: Zhejiang University & UIUC
 location: Zhejiang, China
 description: Haoyu Zhu (朱皓宇) — Electrical Engineering at ZJU–UIUC. Research interests in machine learning and power system optimization.
-avatar: /images/avatar.jpg
-updated: '2026-10-06'
+avatar: /images/profile-study.jpg
+avatarWidth: 1080
+avatarHeight: 1440
+updated: '2026-10-09'
 links:
   - label: Email
     href: mailto:me@geniucker.com
